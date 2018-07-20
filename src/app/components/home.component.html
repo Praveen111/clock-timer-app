@@ -1,0 +1,51 @@
+<h2>Home Component</h2>
+
+
+<ul class="nav nav-tabs nav-justified">
+    <li role="presentation" (click)="switch(1,$event)"><a href="#">Digital Clock</a></li>
+    <li role="presentation" (click)="switch(2,$event)"><a href="#">Timer</a></li>
+    <li role="presentation" (click)="switch(3,$event)"><a href="#">StopWatch</a></li>
+  </ul>
+<br>
+
+<div class="container">
+    <div *ngIf="value===1">
+            <ng-container  *ngTemplateOutlet="clock"></ng-container>
+    </div>
+   <div *ngIf="value===2">
+        <ng-container *ngTemplateOutlet="timer"></ng-container>
+   </div>
+   <div *ngIf="value===3">
+        <ng-container *ngTemplateOutlet="stopwatch"></ng-container>
+   </div>
+    
+</div>
+ 
+  
+
+      <ng-template #clock >
+          
+     <h1>clock {{time}}</h1>
+      </ng-template>
+
+
+      <ng-template #timer>
+          
+      
+            <h1>Timer</h1>
+            <span>
+                    Hour: <input type="number" [(ngModel)]="hour" name="hour" />
+                    Minutes: <input type="number" [(ngModel)]="min" name="min" />
+                    Seconds: <input type="number" [(ngModel)]="sec" name="sec" />
+
+            </span>
+        
+            <button (click)="counter(hour,min,sec)">add</button>
+      </ng-template>
+
+      <ng-template #stopwatch>
+          
+      
+            <h1>StopWatch</h1>
+      </ng-template>
+     
